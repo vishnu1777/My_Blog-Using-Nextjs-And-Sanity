@@ -317,7 +317,7 @@ export default function Home({ blogs, profile }) {
                   Who am I?
                 </h2>
                 <h4 className="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
-                  I'm Christy Smith, a Web Designer & Photographer
+                  I'm {profile.name}, a Web Designer & Photographer
                 </h4>
                 <p className="pt-6 font-body leading-relaxed text-grey-20">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -1149,8 +1149,9 @@ export async function getServerSideProps(context) {
   const query = `*[_type == "blog"][0...3]`;
   const blogs = await client.fetch(query);
 
-  const profileQuery = `*[_type == "author"][0]`;
+  const profileQuery = `*[_type == "profile"][0]`;
   const profile = await client.fetch(profileQuery);
+  console.log(profile);
 
   return {
     props: {

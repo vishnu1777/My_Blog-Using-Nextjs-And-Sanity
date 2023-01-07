@@ -44,7 +44,7 @@ const Blogs = ({ blogs, profile }) => {
                     <div
                       style={{
                         backgroundImage: `url(${
-                          builder.image(item.blogimage).width(200).url() ||
+                          builder.image(item.poster).width(200).url() ||
                           "/assets/img/post-01.png"
                         })`,
                       }}
@@ -58,10 +58,10 @@ const Blogs = ({ blogs, profile }) => {
                     <div className="bg-white py-6 px-5 xl:py-8 cursor-pointer">
                       <span className="block font-body text-lg font-semibold text-black">
                         {" "}
-                        {item.title}
+                        {item.Title}
                       </span>
                       <span className="block pt-2 font-body text-grey-20">
-                        {item.metadesc}
+                        {item.MetaDesc}
                       </span>
                     </div>
                   </div>
