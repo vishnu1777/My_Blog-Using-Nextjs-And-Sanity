@@ -9,7 +9,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 
-export default function Home({ blogs, profile }) {
+export default function Home({ blogs, profile, skills }) {
   const client = createClient({
     projectId: "argq7sf8",
     dataset: "production",
@@ -281,10 +281,10 @@ export default function Home({ blogs, profile }) {
                       </div>
                     </div>
                     <div className="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0">
-                      <a href={profile.fbLink}>
+                      <a href={profile.fburl}>
                         <i className="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
                       </a>
-                      <a href={profile.twitterLink} className="pl-4">
+                      <a href={profile.twitterurl} className="pl-4">
                         <i className="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
                       </a>
                       <a href="/" className="pl-4">
@@ -293,7 +293,7 @@ export default function Home({ blogs, profile }) {
                       <a href="/" className="pl-4">
                         <i className="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
                       </a>
-                      <a href={profile.instagramLink} className="pl-4">
+                      <a href={profile.instaurl} className="pl-4">
                         <i className="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
                       </a>
                     </div>
@@ -317,17 +317,10 @@ export default function Home({ blogs, profile }) {
                   Who am I?
                 </h2>
                 <h4 className="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
-                  I'm {profile.name}, a Web Designer & Photographer
+                  I'm {profile.name}, a {profile.status}
                 </h4>
                 <p className="pt-6 font-body leading-relaxed text-grey-20">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  {profile.name}
                 </p>
                 <div className="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start">
                   <div className="flex items-center justify-center sm:justify-start">
@@ -339,10 +332,10 @@ export default function Home({ blogs, profile }) {
                     </div>
                   </div>
                   <div className="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0">
-                    <a href="/">
+                    <a href={profile.fburl}>
                       <i className="bx bxl-facebook-square text-2xl text-primary hover:text-yellow"></i>
                     </a>
-                    <a href="/" className="pl-4">
+                    <a href={profile.twitterurl} className="pl-4">
                       <i className="bx bxl-twitter text-2xl text-primary hover:text-yellow"></i>
                     </a>
                     <a href="/" className="pl-4">
@@ -351,7 +344,7 @@ export default function Home({ blogs, profile }) {
                     <a href="/" className="pl-4">
                       <i className="bx bxl-linkedin text-2xl text-primary hover:text-yellow"></i>
                     </a>
-                    <a href="/" className="pl-4">
+                    <a href={profile.instaurl} className="pl-4">
                       <i className="bx bxl-instagram text-2xl text-primary hover:text-yellow"></i>
                     </a>
                   </div>
@@ -361,10 +354,10 @@ export default function Home({ blogs, profile }) {
                 <div>
                   <div className="flex items-end justify-between">
                     <h4 className="font-body font-semibold uppercase text-black">
-                      HTML & CSS
+                      {skills.p1}
                     </h4>
                     <h3 className="font-body text-3xl font-bold text-primary">
-                      85%
+                      {skills.r1}%
                     </h3>
                   </div>
                   <div className="mt-2 h-3 w-full rounded-full bg-lila">
@@ -377,10 +370,10 @@ export default function Home({ blogs, profile }) {
                 <div className="pt-6">
                   <div className="flex items-end justify-between">
                     <h4 className="font-body font-semibold uppercase text-black">
-                      Python
+                      {skills.p2}
                     </h4>
                     <h3 className="font-body text-3xl font-bold text-primary">
-                      70%
+                      {skills.r2}%
                     </h3>
                   </div>
                   <div className="mt-2 h-3 w-full rounded-full bg-lila">
@@ -393,10 +386,10 @@ export default function Home({ blogs, profile }) {
                 <div className="pt-6">
                   <div className="flex items-end justify-between">
                     <h4 className="font-body font-semibold uppercase text-black">
-                      Javascript
+                      {skills.p3}
                     </h4>
                     <h3 className="font-body text-3xl font-bold text-primary">
-                      98%
+                      {skills.r3}%
                     </h3>
                   </div>
                   <div className="mt-2 h-3 w-full rounded-full bg-lila">
@@ -409,10 +402,10 @@ export default function Home({ blogs, profile }) {
                 <div className="pt-6">
                   <div className="flex items-end justify-between">
                     <h4 className="font-body font-semibold uppercase text-black">
-                      Figma
+                      {skills.p4}
                     </h4>
                     <h3 className="font-body text-3xl font-bold text-primary">
-                      91%
+                      {skills.r4}%
                     </h3>
                   </div>
                   <div className="mt-2 h-3 w-full rounded-full bg-lila">
@@ -430,9 +423,6 @@ export default function Home({ blogs, profile }) {
             <h2 className="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
               Here's what I'm good at
             </h2>
-            <h3 className="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
-              These are the services Ioffer
-            </h3>
 
             <div className="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3">
               <div className="group rounded px-8 py-12 shadow hover:bg-primary">
@@ -924,8 +914,9 @@ export default function Home({ blogs, profile }) {
                         <div
                           style={{
                             backgroundImage: `url(${
-                              builder.image(item.blogimage).width(200).url() ||
-                              "/assets/img/post-01.png"
+                              (item.poster &&
+                                builder.image(item.poster).width(200).url()) ||
+                              "../public/assets/img/post-01.png"
                             })`,
                           }}
                           className="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
@@ -938,10 +929,10 @@ export default function Home({ blogs, profile }) {
                         <div className="bg-white py-6 px-5 xl:py-8">
                           <span className="block font-body text-lg font-semibold text-black">
                             {" "}
-                            {item.title}
+                            {item.Title}
                           </span>
                           <span className="block pt-2 font-body text-grey-20">
-                            {item.metadesc}
+                            {item.MetaDesc}
                           </span>
                         </div>
                       </div>
@@ -1151,12 +1142,14 @@ export async function getServerSideProps(context) {
 
   const profileQuery = `*[_type == "profile"][0]`;
   const profile = await client.fetch(profileQuery);
-  console.log(profile);
+  const skillsQuery = `*[_type == "skills"][0]`;
+  const skills = await client.fetch(skillsQuery);
 
   return {
     props: {
       blogs,
       profile,
+      skills,
     },
   };
 }
