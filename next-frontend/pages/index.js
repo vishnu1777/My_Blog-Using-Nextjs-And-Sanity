@@ -9,21 +9,13 @@ import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 
-export default function Home({ blogs, profile, skills }) {
+export default function Home({ blogs, profile, skills, contact }) {
   const client = createClient({
     projectId: "argq7sf8",
     dataset: "production",
     useCdn: false,
   });
   const builder = imageUrlBuilder(client);
-  // const profile = {
-  //   title: "WorkWithHarry",
-  //   name: "Harry",
-  //   image: "https://insanebiography.com/wp-content/uploads/codewithharry_108099807_133124151765153_6863548870509034899_n-min-edited.jpg",
-  //   fbLink: "https://facebook.com/codewithharry",
-  //   twitterLink: "https://twitter.com/codewithharry",
-  //   instagramLink: "https://instagram.com/codewithharry",
-  // }
 
   return (
     <>
@@ -106,89 +98,7 @@ export default function Home({ blogs, profile, skills }) {
           ></script>
         </Head>
         <NavBar profile={profile} />
-        {/* <div className="w-full z-50 top-0 py-3 sm:py-5  absolute ">
-        <div className="container flex items-center justify-between">
-          <div>
-            <a href="/">
-             <h2 className='text-white text-2xl font-bold'>{profile.title}</h2>
-            </a>
-          </div>
-          <div className="hidden lg:block">
-            <ul className="flex items-center">
 
-              <li className="group pl-6">
-
-                <a href='#about'><span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">About</span></a>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-                <span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Services</span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-              <a href='#portfolio'><span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Portfolio</span></a>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-              <a href='#clients'><span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Clients</span></a>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-              <a href='#work'><span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Work</span></a>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-              <a href='#statistics'><span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Statistics</span></a>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-              <a href='#blog'><span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Blog</span></a>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-
-                <span
-                  className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Contact</span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-            </ul>
-          </div>
-          <div className="block lg:hidden">
-            <button>
-              <i className="bx bx-menu text-4xl text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div> */}
         <div className="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden" />
         <div className="hidden absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3">
           <button className="absolute top-0 right-0 mt-4 mr-4">
@@ -939,84 +849,21 @@ export default function Home({ blogs, profile, skills }) {
                     </Link>
                   );
                 })}
-                {/* <a href="/post" className="shadow">
-              <div style={{"backgroundImage": "url(/assets/img/post-02.png)"}}
-                className="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72">
-                <span
-                  className="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"></span>
-                <span
-                  className="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base">Read
-                  More</span>
-              </div>
-              <div className="bg-white py-6 px-5 xl:py-8">
-                <span className="block font-body text-lg font-semibold text-black">My personal productivity system</span>
-                <span className="block pt-2 font-body text-grey-20">Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-              </div>
-            </a>
-            <a href="/post" className="shadow">
-              <div style={{"backgroundImage": "url(/assets/img/post-03.png)"}}
-                className="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72">
-                <span
-                  className="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"></span>
-                <span
-                  className="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base">Read
-                  More</span>
-              </div>
-              <div className="bg-white py-6 px-5 xl:py-8">
-                <span className="block font-body text-lg font-semibold text-black">My year in review 2020</span>
-                <span className="block pt-2 font-body text-grey-20">Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-              </div>
-            </a> */}
               </div>
             </div>
           </div>
 
           <div className="container py-16 md:py-20" id="contact">
             <h2 className="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
-              Here's a contact form
+              Here's My Contact Details
             </h2>
             <h4 className="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
               Have Any Questions?
             </h4>
             <div className="mx-auto w-full pt-5 text-center sm:w-2/3 lg:pt-6">
-              <p className="font-body text-grey-10">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit hendrerit
-                condimentum turpis nisl sem, viverra habitasse urna ante
-                lobortis fermentum accumsan. Viverra habitasse urna ante
-                lobortis fermentum accumsan.
-              </p>
+              <p className="font-body text-grey-10">{contact.description}</p>
             </div>
-            <form className="mx-auto w-full pt-10 sm:w-3/4">
-              <div className="flex flex-col md:flex-row">
-                <input
-                  className="mr-3 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:w-1/2 lg:mr-5"
-                  placeholder="Name"
-                  type="text"
-                  id="name"
-                />
-                <input
-                  className="mt-6 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:mt-0 md:ml-3 md:w-1/2 lg:ml-5"
-                  placeholder="Email"
-                  type="text"
-                  id="email"
-                />
-              </div>
-              <textarea
-                className="mt-6 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:mt-8"
-                placeholder="Message"
-                id="message"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <button className="mt-6 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20">
-                Send
-                <i className="bx bx-chevron-right relative -right-2 text-3xl"></i>
-              </button>
-            </form>
+
             <div className="flex flex-col pt-16 lg:flex-row">
               <div className="w-full border-l-2 border-t-2 border-r-2 border-b-2 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/3">
                 <div className="flex items-center">
@@ -1026,7 +873,7 @@ export default function Home({ blogs, profile, skills }) {
                   </p>
                 </div>
                 <p className="pt-2 text-left font-body font-bold text-primary lg:text-lg">
-                  (+881) 111 222 333
+                  {contact.phoneNo}
                 </p>
               </div>
               <div className="w-full border-l-2 border-t-0 border-r-2 border-b-2 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/3 lg:border-l-0 lg:border-t-2">
@@ -1037,7 +884,7 @@ export default function Home({ blogs, profile, skills }) {
                   </p>
                 </div>
                 <p className="pt-2 text-left font-body font-bold text-primary lg:text-lg">
-                  name@mydomain.com
+                  {contact.email}
                 </p>
               </div>
               <div className="w-full border-l-2 border-t-0 border-r-2 border-b-2 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/3 lg:border-l-0 lg:border-t-2">
@@ -1048,50 +895,22 @@ export default function Home({ blogs, profile, skills }) {
                   </p>
                 </div>
                 <p className="pt-2 text-left font-body font-bold text-primary lg:text-lg">
-                  123 New York D Block 1100, 2011 USA
+                  {contact.address}
                 </p>
               </div>
-            </div>
-          </div>
-
-          <div
-            className="h-72 bg-cover bg-center bg-no-repeat sm:h-64 md:h-72 lg:h-96"
-            style={{ backgroundImage: "url(/assets/img/map.png)" }}
-          ></div>
-
-          <div
-            className="relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"
-            style={{ backgroundImage: "url(/assets/img/bg-cta.jpg)" }}
-          >
-            <div className="container relative z-30">
-              <h3 className="text-center font-header text-3xl uppercase leading-tight tracking-wide text-white sm:text-4xl lg:text-5xl">
-                Keep <span className="font-bold">up-to-date</span> <br />
-                with what I'm up to
-              </h3>
-              <form className="mt-6 flex flex-col justify-center sm:flex-row">
-                <input
-                  className="w-full rounded px-4 py-3 font-body text-black sm:w-2/5 sm:py-4 lg:w-1/3"
-                  type="text"
-                  id="email"
-                  placeholder="Give me your Email"
-                />
-                <button className="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
-                  Join the club
-                </button>
-              </form>
             </div>
           </div>
         </div>
         <div className="bg-primary">
           <div className="container flex flex-col justify-between py-6 sm:flex-row">
             <p className="text-center font-body text-white md:text-left">
-              © Copyright 2022. All right reserved, ATOM.
+              © Copyright 2022. All right reserved, {profile.name}.
             </p>
             <div className="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
-              <a href="/">
+              <a href={profile.fburl}>
                 <i className="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
               </a>
-              <a href="/" className="pl-4">
+              <a href={profile.twitterurl} className="pl-4">
                 <i className="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
               </a>
               <a href="/" className="pl-4">
@@ -1100,7 +919,7 @@ export default function Home({ blogs, profile, skills }) {
               <a href="/" className="pl-4">
                 <i className="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
               </a>
-              <a href="/" className="pl-4">
+              <a href={profile.instaurl} className="pl-4">
                 <i className="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
               </a>
             </div>
@@ -1142,14 +961,19 @@ export async function getServerSideProps(context) {
 
   const profileQuery = `*[_type == "profile"][0]`;
   const profile = await client.fetch(profileQuery);
+
   const skillsQuery = `*[_type == "skills"][0]`;
   const skills = await client.fetch(skillsQuery);
+
+  const ContactQuery = `*[_type == "contact"][0]`;
+  const contact = await client.fetch(ContactQuery);
 
   return {
     props: {
       blogs,
       profile,
       skills,
+      contact,
     },
   };
 }
